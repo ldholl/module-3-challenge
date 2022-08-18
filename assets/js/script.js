@@ -29,53 +29,48 @@ generateBtn.addEventListener("click", writePassword);*/
 
 */
 
-
-/*var passwordLength = function(){
+//Function to get user password length
+var passwordLength = function(){
 
   var promptLength = window.prompt("How many characters would you like your password to contain? Please enter a number between 8 and 128");
   promptLength = parseInt(promptLength);
-
+//check that user picked a number within the specified limit
   if (promptLength < 8 || promptLength > 128){
   window.alert("Please enter a valid number.");
   passwordLength();
   }
+  //checked that the user entered a number
   else if (isNaN(promptLength)){
     window.alert("Please enter a number.")
     passwordLength();
   }
+  //logs choice to console
   else{
     console.log(promptLength);
   }
 }
-passwordLength();*/
+passwordLength();
 
 
-//
+//Function to get user character preference
 function passwordCharacters (){
 
   //ask whether user wants numbers in their password
     
   var promptNumbers = window.prompt("Would you like your password to include numbers? Please type '1' for YES or '0' for NO.");
   promptNumbers = parseInt(promptNumbers)
-    
     while (promptNumbers !== 0 && promptNumbers !== 1){
       promptNumbers = window.prompt("Please enter a valid number. Would you like your password to include numbers? Please type '1' for YES or '0' for NO.");
       promptNumbers = parseInt(promptNumbers);
-      
     } 
     console.log(promptNumbers);
-    
-    
-  //can copy this almost verbatim for other questions
-  
+      
   //ask whether user wants cap letters in their password
-  
   var promptCapLetters = window.prompt("Would you like your password to include uppercase letters? Please type '1' for YES or '0' for NO.");
   promptCapLetters = parseInt(promptCapLetters)
     while(promptCapLetters !== 0 && promptCapLetters !== 1){
       promptCapLetters = window.prompt("Please enter a valid number. Would you like your password to contain uppercase letters? Please type '1' for YES or '0' for no.");
       promptCapLetters = parseInt(promptCapLetters)
-  
     }
     console.log(promptCapLetters);
 
@@ -87,6 +82,7 @@ function passwordCharacters (){
     promptLowLetters = parseInt(promptLowLetters);
     }
     console.log(promptLowLetters);
+
   //ask whether user wants special caracters in their password
   var promptSpChars = window.prompt("Would you like your password to contain special characters? Please enter '1' for YES or '0' for NO.");
   promptSpChars = parseInt(promptSpChars);
@@ -95,7 +91,8 @@ function passwordCharacters (){
     promptSpChars = parseInt(promptSpCars)
     }
     console.log(promptSpChars)
-  
+
+  //Rerun function if user didn't pick yes for any of the options
     if (promptNumbers + promptCapLetters + promptLowLetters + promptSpChars === 0){
     window.alert("I can't work with no characters! Please choose YES for at least one option.")
     passwordCharacters ();
@@ -105,7 +102,6 @@ function passwordCharacters (){
   passwordCharacters();
 
 
-passwordCharacters();
 
 //array to hold Password Object functions
 var getChar = [
