@@ -51,28 +51,58 @@ passwordLength();*/
 
 
 //
-var passwordCharacters = function(){
+function passwordCharacters (){
 
-//ask whether user wants numbers in their password
+  //ask whether user wants numbers in their password
+    
+  var promptNumbers = window.prompt("Would you like your password to include numbers? Please type '1' for YES or '0' for NO.");
+  promptNumbers = parseInt(promptNumbers)
+    
+    while (promptNumbers !== 0 && promptNumbers !== 1){
+      promptNumbers = window.prompt("Please enter a valid number. Would you like your password to include numbers? Please type '1' for YES or '0' for NO.");
+      promptNumbers = parseInt(promptNumbers);
+      
+    } 
+    console.log(promptNumbers);
+    
+    
+  //can copy this almost verbatim for other questions
   
-var promptNumbers = window.prompt("Would you like your password to include numbers? Please type 'YES' or 'NO'.");
-  promptNumbers = promptNumbers.toLowerCase();
-  while (promptNumbers !== 'yes' && promptNumbers !== 'no'){
-    promptNumbers = window.prompt("Please enter a valid answer. Would you like your password to include numbers? Please type 'YES' or 'NO'");
-    promptNumbers = promptNumbers.toLowerCase();
-  } 
-  console.log(promptNumbers);
+  //ask whether user wants cap letters in their password
   
+  var promptCapLetters = window.prompt("Would you like your password to include uppercase letters? Please type '1' for YES or '0' for NO.");
+  promptCapLetters = parseInt(promptCapLetters)
+    while(promptCapLetters !== 0 && promptCapLetters !== 1){
+      promptCapLetters = window.prompt("Please enter a valid number. Would you like your password to contain uppercase letters? Please type '1' for YES or '0' for no.");
+      promptCapLetters = parseInt(promptCapLetters)
+  
+    }
+    console.log(promptCapLetters);
+
+  //ask whether user wants lowercase letters in their password
+  var promptLowLetters = window.prompt("Would you like your password to contain lowercase letters? Please type '1' for YES or '0' for NO.");
+  promptLowLetters = parseInt(promptLowLetters);
+  while(promptLowLetters !== 0 && promptLowLetters !== 1){
+    promptLowLetters = window.prompt("Please enter a valid number. Would you like your password to include lowercase letters? Please type '1' for YES or '0' for NO.");
+    promptLowLetters = parseInt(promptLowLetters);
+    }
+    console.log(promptLowLetters);
+  //ask whether user wants special caracters in their password
+  var promptSpChars = window.prompt("Would you like your password to contain special characters? Please enter '1' for YES or '0' for NO.");
+  promptSpChars = parseInt(promptSpChars);
+  while(promptSpChars !== 0 && promptSpChars !== 1){
+    promptSpChars = window.prompt("Please enter a valid number. Would you like your password to contain special characters? Please type '1' for YES or '0' for NO.");
+    promptSpChars = parseInt(promptSpCars)
+    }
+    console.log(promptSpChars)
+  
+    if (promptNumbers + promptCapLetters + promptLowLetters + promptSpChars === 0){
+    window.alert("I can't work with no characters! Please choose YES for at least one option.")
+    passwordCharacters ();
   }
-//can copy this almost verbatim for other questions
+}
 
-//ask whether user wants cap letters in their password
-
-//ask whether user wants lowercase letters in their password
-
-//ask whether user wants special caracters in their password
-
-
+  passwordCharacters();
 
 
 passwordCharacters();
@@ -123,4 +153,4 @@ for (
 
 var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowLetters = "abcdefghijklmnopqrstuvwxyz";
-var spCharacters = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+var spChars = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
