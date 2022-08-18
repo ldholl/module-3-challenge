@@ -19,9 +19,12 @@ generateBtn.addEventListener("click", writePassword);*/
 
 //var generatePwd = function (){}
 
-//Password Object
+//Password Variables Object
 /*var passwordObj ={
-  length: promptLength,
+  numbers: "1234567890",
+  capLetters : "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowLetters : "abcdefghijklmnopqrstuvwxyz",
+  spCharacters : " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 }
 
 */
@@ -59,19 +62,63 @@ var promptNumbers = window.prompt("Would you like your password to include numbe
     promptNumbers = promptNumbers.toLowerCase();
   } 
   console.log(promptNumbers);
-
+  
+  }
 //can copy this almost verbatim for other questions
 
-
 //ask whether user wants cap letters in their password
-
 
 //ask whether user wants lowercase letters in their password
 
 //ask whether user wants special caracters in their password
-}
+
+
+
 
 passwordCharacters();
+
+//array to hold Password Object functions
+var getChar = [
+  function numbers(){
+  return passwordObj.numbers[
+      Math.floor(Math.random() * passwordObj.numbers.length)
+    ];
+  },
+  
+  function capLetters(){
+    return passwordObj.capLetters[
+      Math.floor(Math.random() * passwordObj.capLetters.length)
+    ];
+  },
+  function lowLetters(){
+    return passwordObj[
+      Math.floor(Math.random() * passwordObj.lowLetters.length)
+    ];
+  },
+  function spCharacters (){
+    return passwordObj.spCharacters[Math.floor(Math.random() * passwordObj.spCharacters.length)];
+  }
+];
+
+function getChar(){}
+
+while(password.length > promptLength){
+
+  
+}
+  
+
+
+
+//FOR loop to run through variables until password length is reached
+
+for (
+  var i = 0; 
+  i < promptLength;
+  //whatever function needs to run
+   )
+//print completed password to the document
+
 
 
 var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
