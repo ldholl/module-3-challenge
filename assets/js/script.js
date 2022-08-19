@@ -32,21 +32,22 @@ generateBtn.addEventListener("click", writePassword);*/
 //Function to get user password length
 var passwordLength = function(){
 
-  var promptLength = window.prompt("How many characters would you like your password to contain? Please enter a number between 8 and 128");
-  promptLength = parseInt(promptLength);
-//check that user picked a number within the specified limit
-  if (promptLength < 8 || promptLength > 128){
-  window.alert("Please enter a valid number.");
-  passwordLength();
-  }
-  //checked that the user entered a number
-  else if (isNaN(promptLength)){
+var promptLength = window.prompt("How many characters would you like your password to contain? Please enter a number between 8 and 128");
+promptLength = parseInt(promptLength);
+//check that the user entered a number
+  if (isNaN(promptLength)){
     window.alert("Please enter a number.")
-    passwordLength();
+    return passwordLength();
+  }
+  //check that the user entered a valid number
+  else if  (promptLength < 8 || promptLength > 128){
+  window.alert("Please enter a valid number.");
+  return passwordLength();
   }
   //logs choice to console
   else{
     console.log(promptLength);
+    return promptLength;
   }
 }
 passwordLength();
@@ -54,10 +55,29 @@ passwordLength();
 
 //Function to get user character preference
 function passwordCharacters (){
-
+var availableCharacters = "";
   //ask whether user wants numbers in their password
-    
-  var promptNumbers = window.prompt("Would you like your password to include numbers? Please type '1' for YES or '0' for NO.");
+if (window.confirm("Would you like your password to include numbers?")){
+  availableCharacters += "0123456789"
+}  
+if(window.confirm("Would you like your password to include capital letters?")){
+  availableCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+}
+if (window.confirm("Would you like your password to include lowercase letters?")){
+  availableCharacters += "abcdefghijklmnopqrstuvwxyz"
+}
+if (window.confirm("Would you like your password to include special characters?")){
+  availableCharacters += " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+}
+if (availableCharacters.length <= 1){
+  console.alert("I can't work with no characters! Please choose YES for at least one option.")
+  passwordCharacters ();
+}
+return availableCharacters;
+}
+
+passwordCharacters ();
+ /* var promptNumbers = window.prompt("Would you like your password to include numbers? Please type '1' for YES or '0' for NO.");
   promptNumbers = parseInt(promptNumbers)
     while (promptNumbers !== 0 && promptNumbers !== 1){
       promptNumbers = window.prompt("Please enter a valid number. Would you like your password to include numbers? Please type '1' for YES or '0' for NO.");
@@ -150,3 +170,4 @@ for (
 var capLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowLetters = "abcdefghijklmnopqrstuvwxyz";
 var spChars = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+*/
