@@ -50,7 +50,7 @@ promptLength = parseInt(promptLength);
     return promptLength;
   }
 }
-passwordLength();
+
 
 
 //Function to get user character preference
@@ -76,7 +76,24 @@ if (availableCharacters.length <= 1){
 return availableCharacters;
 }
 
-passwordCharacters ();
+
+
+function generatePwd(){
+  var password = "";
+  var pwdLength = passwordLength();
+  var availableCharacters = passwordCharacters();
+
+  for (var i = 0; i < pwdLength; i++){
+    var randomChar = availableCharacters[Math.floor(Math.random() * availableCharacters.length)];
+    password += randomChar
+  }
+  document.getElementById("password").textContent = password;
+}
+generatePwd();
+
+
+
+
  /* var promptNumbers = window.prompt("Would you like your password to include numbers? Please type '1' for YES or '0' for NO.");
   promptNumbers = parseInt(promptNumbers)
     while (promptNumbers !== 0 && promptNumbers !== 1){
